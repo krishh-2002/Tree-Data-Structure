@@ -7,12 +7,14 @@ Approach:
 
 The algorithm steps can be stated as:
 
-We take an explicit data structure and a cur pointer pointing to the root of the tree.
+We take an explicit stack data structure and a cur pointer pointing to the root of the tree.
 We run a while loop till the time the cur is not pointing to NULL or the stack is non-empty.
 If cur is not pointing to NULL, it means then we simply push that value to the stack and move the cur pointer to its left child because we want to explore the left child before the root or the right child.
-If the cur is pointing to NULL, it means we can’t go further left, then we take a variable temp and set it to  cur’s parent’s right child (as we have visited the left child, now we want to visit the right child). We have node cur’s parent at the top of the stack.
+If the cur is pointing to NULL, it means we can’t go further left, then we take a variable temp and set it to  cur’s parent’s right child (as we have visited the left child,
+now we want to visit the right child). We have node cur’s parent at the top of the stack.
 If node temp is not pointing to NULL, we simply initialise cur as node temp so that we can again start looking at the left of node temp from the next iteration.
-If node temp is pointing to NULL, then first of all we are sure that we have visited both children of temp’s parent, so it’s time to print it. Therefore we set temp to its parent( present at the top of stack), pop the stack and then print temp’s value.
+If node temp is pointing to NULL, then first of all we are sure that we have visited both children of temp’s parent, so it’s time to print it. Therefore we set temp to its parent( present at the top of stack), 
+pop the stack and then print temp’s value.
 Additionally,  this new temp(parent of NULL-pointing node) can be the right child of the node present at the top of stack after popping.
 In that case the node at top of the stack is parent of temp and the next node to be printed. Therefore we run an additional while loop to check if that is the case,
 if true then again move temp to its parent and print its value.
